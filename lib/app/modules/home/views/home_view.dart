@@ -1,4 +1,5 @@
 import 'package:currency_app/app/modules/home/controllers/exchange_controller.dart';
+import 'package:currency_app/app/modules/home/views/logic.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -15,6 +16,16 @@ class HomeView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        leadingWidth: 150,
+        leading: TextButton.icon(
+            onPressed: () {
+              Get.to(() => LogicView());
+            },
+            icon: Icon(
+              Icons.touch_app_rounded,
+              color: Colors.white,
+            ),
+            label: Text("Logic Test")),
         backgroundColor: Color(0xFF25262F),
         title: Text("BTC"),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.history))],
@@ -196,7 +207,6 @@ class HomeView extends GetView<HomeController> {
                             width: 100,
                             child: Center(
                               child: TextFormField(
-                               
                                 style: GoogleFonts.prompt(
                                     color: Colors.white, fontSize: 18),
                                 onChanged: (value) {
